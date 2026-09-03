@@ -4,13 +4,19 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 # pyrefly: ignore [missing-import]
 from sqlalchemy import text
 
 from models import Task, db
 
 app = Flask(__name__)
+
+
+@app.get("/")
+def index():
+    return render_template("index.html")
+
 
 DB_HOST = os.environ["DB_HOST"]
 DB_PORT = os.environ["DB_PORT"]

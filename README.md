@@ -50,6 +50,7 @@ Runs by default on `http://127.0.0.1:5000`. Tables are created automatically on 
 
 | Method | Route | Description |
 |---|---|---|
+| `GET` | `/` | Web UI (HTML/CSS frontend) |
 | `GET` | `/healthz` | App health check (returns `ok`) |
 | `GET` | `/readyz` | DB connectivity check (returns 503 if down) |
 | `GET` | `/tasks` | List all tasks |
