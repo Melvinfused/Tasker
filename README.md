@@ -31,12 +31,12 @@ Simple Flask REST API for managing tasks with PostgreSQL and SQLAlchemy.
    ```env
    DB_HOST=localhost
    DB_PORT=5432
-   DB_NAME=tasker
-   DB_USER=postgres
-   DB_PASSWORD=your_password
+   DB_NAME=your_db_name
+   DB_USER=your_db_user
+   DB_PASSWORD=your_db_password
    ```
 
-Make sure the database exists in postgres (`CREATE DATABASE tasker;`).
+Make sure the database exists in postgres (`CREATE DATABASE your_db_name;`).
 
 ## Running
 
