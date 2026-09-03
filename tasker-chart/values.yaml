@@ -65,7 +65,7 @@ affinity: {}
 
 
 db:
-  host: "tasker-postgres"    
+  host: "tasker-postgresql"    
   port: "5432"
   name: "tasker"
   user: "postgres"
