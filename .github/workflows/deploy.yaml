@@ -71,8 +71,8 @@ jobs:
                         helm upgrade --install tasker ~/tasker-chart \
                         --set image.repository=ghcr.io/${{ steps.owner.outputs.owner }}/tasker \
                         --set image.tag=${{ github.sha }} \
-                        --set db.password='${{ secrets.DB_PASSWORD }}' \
-                        --set postgresql.auth.postgresPassword='${{ secrets.DB_PASSWORD }}' \
+                        --set-string db.password='${{ secrets.DB_PASSWORD }}' \
+                        --set-string postgresql.auth.postgresPassword='${{ secrets.DB_PASSWORD }}' \
                         --atomic \
                         --timeout 2m \
                         --history-max 5
