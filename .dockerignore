@@ -1,0 +1,13 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.git/
+.github/
+.env
+*.pem
+*.key
+.vscode/
+.idea/
+*.log
+tasker-chart/
