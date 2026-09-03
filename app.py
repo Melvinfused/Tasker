@@ -12,11 +12,11 @@ from models import Task, db
 
 app = Flask(__name__)
 
-DB_HOST = os.environ.get("DB_HOST", "localhost")
-DB_PORT = os.environ.get("DB_PORT", "5432")
-DB_NAME = os.environ.get("DB_NAME", "tasker")
-DB_USER = os.environ.get("DB_USER", "postgres")
-DB_PASSWORD = os.environ.get("DB_PASSWORD", "postgres")
+DB_HOST = os.environ["DB_HOST"]
+DB_PORT = os.environ["DB_PORT"]
+DB_NAME = os.environ["DB_NAME"]
+DB_USER = os.environ["DB_USER"]
+DB_PASSWORD = os.environ["DB_PASSWORD"]
 
 app.config["SQLALCHEMY_DATABASE_URI"] = (
     f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
@@ -29,10 +29,7 @@ with app.app_context():
     db.create_all()
 
 
-# ---------------------------------------------------------------------------
 # Health / readiness
-# ---------------------------------------------------------------------------
-
 @app.get("/healthz")
 def healthz():
     return "ok"
@@ -47,10 +44,7 @@ def readyz():
         return jsonify({"status": "error", "detail": str(exc)}), 503
 
 
-# ---------------------------------------------------------------------------
-# Tasks CRUD
-# ---------------------------------------------------------------------------
-
+# Tasks
 @app.get("/tasks")
 def list_tasks():
     tasks = Task.query.all()
