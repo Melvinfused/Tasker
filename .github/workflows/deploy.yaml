@@ -71,4 +71,4 @@ jobs:
                         --set postgresql.auth.postgresPassword='${{ secrets.DB_PASSWORD }}' \
                         --atomic \
                         --timeout 2m \
-                        --history-max 4
+                        --history-max 5
