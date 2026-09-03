@@ -73,6 +73,5 @@ jobs:
                         --set image.tag=${{ github.sha }} \
                         --set-string db.password='${{ secrets.DB_PASSWORD }}' \
                         --set-string postgresql.auth.postgresPassword='${{ secrets.DB_PASSWORD }}' \
-                        --atomic \
                         --timeout 2m \
                         --history-max 5
