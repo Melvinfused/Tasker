@@ -65,7 +65,7 @@ affinity: {}
 
 
 db:
-  host: "tasker-postgresql"    
+  host: "tasker-postgresql"   # correct name,  this is what we'll misconfigure
   port: "5432"
   name: "tasker"
   user: "postgres"
