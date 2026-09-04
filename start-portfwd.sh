@@ -1,5 +1,5 @@
 ﻿#!/bin/bash
-
+echo "Starting port-forwarding"
 echo "Cleaning up any existing listeners on 3000/9090/9093..."
 
 sudo ss -tlnp | grep -E ':3000|:9090|:9093' | grep -oP 'pid=\K[0-9]+' | xargs -r sudo kill -9
