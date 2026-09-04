@@ -1,4 +1,5 @@
 ﻿#!/bin/bash
+
 echo "Starting port-forwarding"
 echo "Cleaning up any existing listeners on 3000/9090/9093..."
 
