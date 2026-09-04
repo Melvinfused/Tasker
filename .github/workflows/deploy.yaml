@@ -55,6 +55,24 @@ jobs:
                     source: "tasker-chart"
                     target: "~/"
 
+            - name: Copy test scripts to EC2
+              uses: appleboy/scp-action@v0.1.7
+              with:
+                    host: ${{ secrets.EC2_HOST }}
+                    username: ${{ secrets.EC2_USER }}
+                    key: ${{ secrets.EC2_KEY }}
+                    source: "tests/"
+                    target: "~/"
+
+            - name: Copy port-forward script to EC2
+              uses: appleboy/scp-action@v0.1.7
+              with:
+                    host: ${{ secrets.EC2_HOST }}
+                    username: ${{ secrets.EC2_USER }}
+                    key: ${{ secrets.EC2_KEY }}
+                    source: "start-portfwd.sh"
+                    target: "~/"
+
             - name: Deploy to K3s via Helm over SSH
               uses: appleboy/ssh-action@v1.0.0
               with:
@@ -63,6 +81,7 @@ jobs:
                     key: ${{ secrets.EC2_KEY }}
                     script: |
                         export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+                        chmod +x ~/start-portfwd.sh ~/tests/*.sh 2>/dev/null || true
                         
                         kubectl get nodes
                         

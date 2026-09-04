@@ -11,3 +11,6 @@ __pycache__/
 .idea/
 *.log
 tasker-chart/
+tests/
+docs/
+grafana/
